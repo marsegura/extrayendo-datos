@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Extrayendo datos</title>
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/extra.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+    
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+     var link = document.createElement( 'link' );
+     link.rel = 'stylesheet';
+     link.type = 'text/css';
+     link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+     document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section><h1>Proyecto de extracción de datos</h1>
+	  <h2 class='fragment'>Automatización</h2>
+	  <h2 class='fragment'>Planificación</h2>
+	  <h2 class='fragment'>Colaboración</h2>
+	</section>
+
+	<section><h1>Decide qué quieres contar</h1>
+	  <h2 class='fragment'>Busca los datos</h2>
+	  <h2 class='fragment'>Procésalos/ponlos en un
+	    mapa/visualízalos</h2>
+	  <h2 class='fragment'>Busca patrones existentes/huecos/relaciones</h2>
+	  <h2 class='fragment'>Cuenta una historia</h2>
+	</section>
+
+	<section><h1>Trabaja colaborativamente usando
+	  <code>git</code></h1>
+	  <h2 class='fragment'>Cuenta en <a
+	    href='http://github.com/'>GitHub</a></h2>
+	  <h2 class='fragment'>Descarga <a
+	  href='https://desktop.github.com/'>cliente</a> para
+	    cualquier sistema operativo</h2>
+	  <h2 class='fragment'>Instalar y configurar el cliente con la
+	    cuenta creada</h2>
+	</section>
+
+	<section><h1>Hablemos de licencias</h1>
+	  <h2 class='fragment'>En un repositorio público, lo mejor es
+	    hacerlas explícitas</h2>
+	</section>
+
+	<section><h1>Markdown es el lenguaje de los proyectos</h1>
+	</section>
+	<section>
+	  <h1>Ejercicio</h1>
+
+	  <h2>Copiar (<em>fork</em>) <a
+	  href='https://github.com/sarahcnyt/data-journalism'>materiales
+	  de periodismo de datos y examinar lo que hay, corrigiendo
+	    algún error en nuestra copia.</a></h2>
+	</section>
+
+	
+      </div>
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+     // More info about config & dependencies:
+     // - https://github.com/hakimel/reveal.js#configuration
+     // - https://github.com/hakimel/reveal.js#dependencies
+     Reveal.initialize({
+       dependencies: [
+	 { src: 'plugin/notes/notes.js', async: true },
+	 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+       ]
+     });
+    </script>
+  </body>
+</html>
