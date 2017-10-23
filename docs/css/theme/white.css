@@ -17,7 +17,7 @@ body {
 
 .reveal {
   font-family: Montserrat, Helvetica, sans-serif;
-  font-size: 42px;
+  font-size: 32px;
   font-weight: normal;
   color: #222; }
 
@@ -152,7 +152,7 @@ body {
   width: 90%;
   margin: 20px auto;
   text-align: left;
-  font-size: 0.55em;
+  font-size: 1.05em;
   font-family: monospace;
   line-height: 1.2em;
   word-wrap: break-word;

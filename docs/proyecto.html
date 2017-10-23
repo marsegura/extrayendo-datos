@@ -62,8 +62,8 @@
 
 	  <h2>Copiar (<em>fork</em>) <a
 	  href='https://github.com/sarahcnyt/data-journalism'>materiales
-	  de periodismo de datos y examinar lo que hay, corrigiendo
-	    algún error en nuestra copia.</a></h2>
+	    de periodismo de datos</a> y examinar lo que hay, corrigiendo
+	    algún error en nuestra copia.</h2>
 	</section>
 
 	<section>
@@ -115,10 +115,12 @@
      // - https://github.com/hakimel/reveal.js#configuration
      // - https://github.com/hakimel/reveal.js#dependencies
      Reveal.initialize({
-       dependencies: [
-	 { src: 'plugin/notes/notes.js', async: true },
-	 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-       ]
+      history: true,
+      width: '90%',
+     dependencies: [
+       { src: 'plugin/notes/notes.js', async: true },
+       { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+     ]
      });
     </script>
   </body>
