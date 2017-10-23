@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="lib/css/zenburn.css">
     
     <!-- Printing and PDF exports -->
+    <
     <script>
      var link = document.createElement( 'link' );
      link.rel = 'stylesheet';
@@ -24,10 +25,19 @@
   <body>
     <div class="reveal">
       <div class="slides">
+	<section><h1>Antes de las tablas</h1>
+	  <h2 class='fragment'>Los <em>conjuntos de caracteres</em></h2>
+	</section>
+
+	<section><h1>Codificación</h1>
+	  <h2 class='fragment'>O <code>latin1/iso8859-1/iso8859-15</code></h2>
+	  <h2 class='fragment'>O UTF8</h2>
+	  <aside class='fragment'>Generalmente, los programas que uno va a usar no van a dar problemas, sobre todo si descargamos cosas de la web. Si copiamos/pegamos sí puede haber algún problema, o si guardamos con un programa y queremos procesar con otro programa. En general, casi todo el mundo va a usar utf8 (que utiliza varios bytes por cada carácter), pero algunos conjuntos de datos abiertos pueden usar latin1 (sin €) o iso-8859-15 (con el símbolo del €). Si trabajas con el navegador, la información de la página te va a dar con qué conjunto de caracteres se está trabajando.</aside>
+	</section>
+	  
 	<section><h1>Formatos de datos</h1>
 	  <h2>En general, tablas</h2>
 	</section>
-	
 	<section><h1>Formatos <em>de programa</em>
 	  <h2 class='fragment'>Excel, LibreOffice Calc</h2>
 	  <h2 class='fragment'>Ubicuos pero difíciles de automatizar</h2>
@@ -49,6 +59,23 @@
 	  públicos Madrid</a>
 	</h1></section>
 
+	<section><h1>Se puede tratar directamente</h1>
+	  <h2 class='fragment'><a href='https://cloud.google.com/dataprep/'>Google Data preparation</a></h2>
+	  <h2 class='fragment'><a href='https://fusiontables.google.com/'>Google Fusion Tables</a></h2>
+	  <aside class='notes'>Yo no he logrado hacer nada con Data Prep, pero igual es cosa mía...</aside>
+	</section>
+	
+	<section><h1>Usando Google Fusion Tables</h1>
+	  <h2 class='fragment'><a href='https://fusiontables.google.com/data?docid=1T5jN1hIP9tNcwhpVGFW9EaS5zp7am70gQWv161HO#map:id=5'>Aparcamientos</a>
+	  </h2>
+	</section>
+	<section><h1>Subir tabla</h1>
+	  <h2 class='fragment'><a href='https://support.google.com/fusiontables/answer/175922?hl=en'>Designar localización multi-columna</a>
+	  </h2>
+	  <h2 class='fragment'>Crear mapa</h2>no
+	  <h2 class='fragment'>"Mapa de calor"</h2>
+	</section>
+	    
       </div>
     </div>
     
