@@ -5,4 +5,6 @@ import csv
 
 aparcamientos = urllib2.urlopen('http://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.csv').read()
 
-parkingreader= csv.reader(aparcamientos,delimiter=';')
+parkingreader= csv.reader(aparcamientos,delimiter=';',quotechar='"',skipinitialspace=True)
+for row in parkingreader:
+    print(', '.join(row))
