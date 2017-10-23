@@ -6,10 +6,12 @@ import re
 
 aparcamientos = requests.get('http://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.csv').text
 
-#with open("../data/202625-0-aparcamientos-publicos.csv","r") as aparcamientos:
 parkingreader= csv.reader(aparcamientos.split("\n"),delimiter=';',quotechar='"')
-#for row in parkingreader:
-#    print(row)
 no_vacios = list( filter( lambda p: p, parkingreader))
+columnas = no_vacios[0]
 publicos = list( filter( lambda p: re.search(r"público",p[1]), no_vacios))
-print(publicos)
+with open("exclusivo-publicos.csv", "w") as csvfile:
+    parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
+    parkingwriter.writerow(columnas)
+    parkingwriter.writerows( publicos )
+    
