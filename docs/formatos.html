@@ -143,7 +143,6 @@ with open("exclusivo-publicos.csv", "w") as csvfile:
 	  <pre><code>import csv
 import requests
 import re
-
 aparcamientos = requests.get('http://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.csv').text.split("\n")
 no_vacios = list( filter( lambda p: len(p)>2, aparcamientos))
 columnas = no_vacios[0].split(";")
@@ -178,6 +177,31 @@ aparcamientos_diccionario = list(parkingreader)</code></pre>
 >>> todos_votos = [ votos_alla , votos_aqui ]
 >>> todos_votos[0]["DP"]
 32071</code></pre></section>
+
+	<section><h1>Diccionarios en ficheros: JSON</h1>
+	  <h2>JSON almacena datos con cualquier estructura</h2>
+	  <aside class='notes'> Cierra comillas a lo tonto "</aside>
+	</section>
+
+	<section><h1>Estructuras complejas</h1>
+<pre><code>>>> votos_aqui = { "DP": 18071, "partido" : "PU", "votos": 3015 }
+>>> votos_alli = { "DP": 33071, "partido" : "UUU", "votos": 777 }
+>>> votos_todos = { "votos": 33333 }
+>>> datos = { "distritos": [votos_aqui, votos_alli], "todos": votos_todos}
+>>> datos
+{'distritos': [{'DP': 18071, 'partido': 'PU', 'votos': 3015}, {'DP': 33071, 'partido'
+: 'UUU', 'votos': 777}], 'todos': {'votos': 33333}}
+	</code></pre></section>
+
+	<section><h1>De Python a JSON</h1>
+<pre><code>>>> import json
+>>> json.dumps(datos)
+'{"distritos": [{"DP": 18071, "partido": "PU", "votos": 3015}, {"DP": 33071, "partido
+": "UUU", "votos": 777}], "todos": {"votos": 33333}}'
+	</code></pre></section>
+
+		<section><h2><strong>Ejercicio</strong>: Diseñar una estructura de datos y guardarla en JSON. Observar cómo se escriben los diferentes datos.</h2>
+	</section>
 
 
       </div>
