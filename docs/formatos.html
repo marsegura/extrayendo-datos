@@ -159,6 +159,27 @@ aparcamientos_diccionario = list(parkingreader)</code></pre>
 	  </code></pre>
 	</section>
 
+	<section><h1>Diccionarios = pares clave/valor</h1>
+
+	  <pre><code>>>> votos_aqui = { "DP": 18071, "partido" : "PU", "votos": 3015 }
+>>> votos_aqui
+{'DP': 18071, 'partido': 'PU', 'votos': 3015}
+>>> votos_aqui["votos"]
+3015
+	  </code></pre>
+
+	  <aside class='notes'>Para trabajar con tablas, es más fácil
+	    recordar el nombre que el número de columna que
+	    ocupa</aside>
+	</section>
+
+	<section><h1>Componiéndolos en tablas</h1>
+	  <pre><code>>>> votos_alla = { "DP": 32071, "partido" : "PAM", "votos": 1234 }
+>>> todos_votos = [ votos_alla , votos_aqui ]
+>>> todos_votos[0]["DP"]
+32071</code></pre></section>
+
+
       </div>
     </div>
     
