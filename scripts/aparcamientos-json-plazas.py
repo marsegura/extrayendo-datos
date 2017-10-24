@@ -6,7 +6,7 @@ import csv
 import re
 
 def mis_columnas( fila ):
-    cifras = re.match( r"(\d+)", fila['organization']['organization-desc'])
+    cifras = re.findall( r"(\d+)", fila['organization']['organization-desc'])
     return [fila['title'],fila['address']['postal-code'],
             fila['organization']['accesibility'],
             fila['location']['latitude'],fila['location']['longitude'],
@@ -20,6 +20,6 @@ aparcamientos_columnas = list(map( mis_columnas, aparcamientos ))
 
 with open("aparcamientos-limpio-plazas.csv", "w") as csvfile:
     parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
-    parkingwriter.writerow(["nombre","latitude","longitude"])
+    parkingwriter.writerow(["nombre","CP","Accesibilidad","latitude","longitude","general","residencial"])
     parkingwriter.writerows( aparcamientos_columnas )
 
