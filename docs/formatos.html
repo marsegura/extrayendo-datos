@@ -32,7 +32,7 @@
 	<section><h1>Codificación</h1>
 	  <h2 class='fragment'>O <code>latin1/iso8859-1/iso8859-15</code></h2>
 	  <h2 class='fragment'>O UTF8</h2>
-	  <aside class='fragment'>Generalmente, los programas que uno va a usar no van a dar problemas, sobre todo si descargamos cosas de la web. Si copiamos/pegamos sí puede haber algún problema, o si guardamos con un programa y queremos procesar con otro programa. En general, casi todo el mundo va a usar utf8 (que utiliza varios bytes por cada carácter), pero algunos conjuntos de datos abiertos pueden usar latin1 (sin €) o iso-8859-15 (con el símbolo del €). Si trabajas con el navegador, la información de la página te va a dar con qué conjunto de caracteres se está trabajando.</aside>
+	  <aside class='notes'>Generalmente, los programas que uno va a usar no van a dar problemas, sobre todo si descargamos cosas de la web. Si copiamos/pegamos sí puede haber algún problema, o si guardamos con un programa y queremos procesar con otro programa. En general, casi todo el mundo va a usar utf8 (que utiliza varios bytes por cada carácter), pero algunos conjuntos de datos abiertos pueden usar latin1 (sin €) o iso-8859-15 (con el símbolo del €). Si trabajas con el navegador, la información de la página te va a dar con qué conjunto de caracteres se está trabajando.</aside>
 	</section>
 	  
 	<section><h1>Formatos de datos</h1>
@@ -133,10 +133,11 @@ with open("exclusivo-publicos.csv", "w") as csvfile:
 	    variables o hacer cualquier tipo de operación.</aside>
 	</section>
 
-	<section><h1><strong>Ejercicio</strong>: Crear un programa
+	<section><h1>Ejercicio</h1>
+	  <h2>Crear un programa
 	similar para el conjunto de datos con el que
 	trabajaremos. Colaborativamente o una versión por miembro del
-	equipo. Subir a GitHub y comparar.</h1>
+	equipo. Subir a GitHub y comparar.</h2>
 	</section>
 
 	<section><h1>Las llaves del aparcamiento</h1>
@@ -200,7 +201,8 @@ aparcamientos_diccionario = list(parkingreader)</code></pre>
 ": "UUU", "votos": 777}], "todos": {"votos": 33333}}'
 	</code></pre></section>
 
-		<section><h2><strong>Ejercicio</strong>: Diseñar una estructura de datos y guardarla en JSON. Observar cómo se escriben los diferentes datos.</h2>
+	<section><h1><strong>Ejercicio</strong></h1>
+	  <h2>Diseñar una estructura de datos y guardarla en JSON. Observar cómo se escriben los diferentes datos.</h2>
 	</section>
 
 
@@ -215,6 +217,8 @@ aparcamientos_diccionario = list(parkingreader)</code></pre>
      // - https://github.com/hakimel/reveal.js#configuration
      // - https://github.com/hakimel/reveal.js#dependencies
      Reveal.initialize({
+     history: true,
+     width: '90%',
        dependencies: [
 	 { src: 'plugin/notes/notes.js', async: true },
 	 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
