@@ -104,12 +104,61 @@
 	  datos abiertos y conseguir un titular usando Tablas
 	  Dinámicas</h1>
 	</section>
-
+	
 
 	<!-- Continuación -->
 	<section><h1>Continuamos con <a
 	href='https://jj.github.io/1linepy/preso/mini.html'>una
-	mini-introducción a Python</a></h1></section>
+	  mini-introducción a Python</a></h1></section>
+
+
+	<!-- Usando python -->
+	<section><h1><a href='https://github.com/JJ/extrayendo-datos/aparcamientos.py'>Usando</a> Python</h1>
+	  <pre><code>import csv
+import requests
+import re
+aparcamientos = requests.get('http://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.csv').text
+parkingreader= csv.reader(aparcamientos.split("\n"),delimiter=';',quotechar='"')
+no_vacios = list( filter( lambda p: p, parkingreader))
+columnas = no_vacios[0]
+publicos = list( filter( lambda p: re.search(r"público",p[1]), no_vacios))
+with open("exclusivo-publicos.csv", "w") as csvfile:
+    parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
+    parkingwriter.writerow(columnas)
+    parkingwriter.writerows( publicos )</code></pre>
+
+	  <aside class='notes'>Todo el proceso completo, automatizado
+	    y repetible fácilmente por cualquiera. También se puede
+	    hacer paso a paso en la línea de órdenes y examinar
+	    variables o hacer cualquier tipo de operación.</aside>
+	</section>
+
+	<section><h1><strong>Ejercicio</strong>: Crear un programa
+	similar para el conjunto de datos con el que
+	trabajaremos. Colaborativamente o una versión por miembro del
+	equipo. Subir a GitHub y comparar.</h1>
+	</section>
+
+	<section><h1>Las llaves del aparcamiento</h1>
+	  <pre><code>import csv
+import requests
+import re
+
+aparcamientos = requests.get('http://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.csv').text.split("\n")
+no_vacios = list( filter( lambda p: len(p)>2, aparcamientos))
+columnas = no_vacios[0].split(";")
+parkingreader= csv.DictReader(no_vacios,fieldnames=columnas,delimiter=';',quotechar='"')
+aparcamientos_diccionario = list(parkingreader)</code></pre>
+	</section>
+
+	<section><h1>Un aparcamiento en particular</h1>
+	  <pre><code>OrderedDict([('PK', '13470'), 
+('NOMBRE', 'Aparcamiento mixto. Arquitecto Ribera'), 
+# ...
+('ACCESIBILIDAD', '0'), #...
+	  </code></pre>
+	</section>
+
       </div>
     </div>
     
