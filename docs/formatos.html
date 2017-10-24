@@ -210,6 +210,31 @@ aparcamientos_diccionario = list(parkingreader)</code></pre>
 <aside class='notes'>Hay que "leer" la estructura para averiguar como procesarla.</aside>
 </section>
 
+<section><h1>JSON facilita el procesamiento</h1>
+  <pre><code>#!/usr/bin/env python3
+import json
+import requests
+aparcamientos_json = requests.get('http://sl.ugr.es/parking_json').text
+aparcamientos = json.loads(aparcamientos_json)['@graph']
+aparcamientos_accesibles = list( filter(lambda p: p['organization']['accesibility'] == '1', aparcamientos))
+print(json.dumps(aparcamientos_accesibles))</code></pre>
+</section>
+
+<section><h1>Pero hay quien prefiere CSV</h1>
+<pre><code>aparcamientos_columnas = list(map( lambda p: [p['title'],p['location']['latitude'],p['location']['longitude']], aparcamientos_accesibles ))
+
+with open("aparcamientos-limpio.csv", "w") as csvfile:
+    parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
+    parkingwriter.writerow(["nombre","latitude","longitude"])
+    parkingwriter.writerows( aparcamientos_columnas )</code></pre>
+<aside class='notes'>Cerrando comillas "</aside>
+</section>
+
+
+	<section><h1><strong>Ejercicio</strong></h1>
+	  <h2>Extraer información de JSON y guardarla en CSV para luego procesarla  y visualizarla</h2>
+	</section>
+
       </div>
     </div>
     
