@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import json
+import requests
+import csv
+import re
+
+def mis_columnas( fila ):
+    cifras = re.findall( r"(\d+)", fila['organization']['organization-desc'])
+    return [fila['title'],fila['address']['postal-code'],
+            fila['organization']['accesibility'],
+            fila['location']['latitude'],fila['location']['longitude'],
+            cifras[0], cifras[1],int(cifras[0])/int(cifras[1])]
+
+aparcamientos_json = requests.get('http://sl.ugr.es/parking_json').text
+
+aparcamientos = json.loads(aparcamientos_json)['@graph']
+
+aparcamientos_columnas = list(map( mis_columnas, aparcamientos ))
+
+with open("aparcamientos-limpio-plazas-ratio.csv", "w") as csvfile:
+    parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
+    parkingwriter.writerow(["nombre","CP","Accesibilidad","latitude","longitude","general","residencial"])
+    parkingwriter.writerows( aparcamientos_columnas )
+
