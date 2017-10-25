@@ -24,12 +24,12 @@ for medida in medidas:
             for index, val in enumerate(lecturas):
                 if index % 2 == 0 and float(val) > 0:
                     esta = estaciones_dict[str(int(datos[2]))]
-                    hora = "{0:02d}:00:00".format(int(index/2))
-                    datos_no2.append( [esta['nombre'],esta['long'],esta['lat'],hora,float(val)])
+                    hora = "2017-10-25 {0:02d}:00:00".format(int(index/2))
+                    datos_no2.append( [esta['nombre'],esta['long'],esta['lat'],hora,int(val)])
 
 
-with open("no2-madrid-ahora.csv", "w") as csvfile:
-    parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
+with open("no2-madrid-ahora-coma.csv", "w") as csvfile:
+    parkingwriter=csv.writer(csvfile,delimiter=",",quotechar='"')
     parkingwriter.writerow(["nombre","long","lat","hora","NO2"])
     parkingwriter.writerows( datos_no2 )
             
