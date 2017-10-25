@@ -24,7 +24,8 @@ for medida in medidas:
             for index, val in enumerate(lecturas):
                 if index % 2 == 0 and float(val) > 0:
                     esta = estaciones_dict[str(int(datos[2]))]
-                    datos_no2.append( [esta['nombre'],esta['long'],esta['lat'],int(index/2),float(val)])
+                    hora = "{0:02d}:00:00".format(int(index/2))
+                    datos_no2.append( [esta['nombre'],esta['long'],esta['lat'],hora,float(val)])
 
 
 with open("no2-madrid-ahora.csv", "w") as csvfile:
