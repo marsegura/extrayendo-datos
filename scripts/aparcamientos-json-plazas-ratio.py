@@ -20,6 +20,6 @@ aparcamientos_columnas = list(map( mis_columnas, aparcamientos ))
 
 with open("aparcamientos-limpio-plazas-ratio.csv", "w") as csvfile:
     parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
-    parkingwriter.writerow(["nombre","CP","Accesibilidad","latitude","longitude","general","residencial"])
+    parkingwriter.writerow(["nombre","CP","Accesibilidad","latitude","longitude","general","residencial","ratio"])
     parkingwriter.writerows( aparcamientos_columnas )
 
