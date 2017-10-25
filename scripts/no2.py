@@ -17,16 +17,20 @@ medidas = requests.get('http://www.mambiente.munimadrid.es/opendata/horario.txt'
 datos_no2 = []
 
 for medida in medidas:
-    datos = medida.split(",")
-    if datos[3] == "08": # Entonces es NO2
-        lecturas = datos[9:]
-        for index, val in enumerate(lecturas):
-            if index % 2 == 0 and float(val) > 0:
-                esta = estaciones_dict[str(int(datos[2]))]
-                datos_no2.append( [esta['nombre'],esta['long'],esta['lat'],int(index/2),float(val)])
+    if medida: 
+        datos = medida.split(",")
+        if datos[3] == "08": # Entonces es NO2
+            lecturas = datos[9:]
+            for index, val in enumerate(lecturas):
+                if index % 2 == 0 and float(val) > 0:
+                    esta = estaciones_dict[str(int(datos[2]))]
+                    datos_no2.append( [esta['nombre'],esta['long'],esta['lat'],int(index/2),float(val)])
 
 
-print(datos_no2)
+with open("no2-madrid-ahora.csv", "w") as csvfile:
+    parkingwriter=csv.writer(csvfile,delimiter=";",quotechar='"')
+    parkingwriter.writerow(["nombre","long","lat","hora","NO2"])
+    parkingwriter.writerows( datos_no2 )
             
 
 
