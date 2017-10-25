@@ -91,7 +91,35 @@
 	  <h2 class='fragment'>Sin cabecera, ni estructura...</h2>
 	</section>
 
+	<section><h1>¿ <a href='https://github.com/JJ/extrayendo-datos/blob/master/scripts/no2.py'>Podrá Python</a> con esto?</h1>
+	  <pre><code>medidas = requests.get('http://www.mambiente.munimadrid.es/opendata/horario.txt').text.split("\n")
+datos_no2 = []
+for medida in medidas:
+    if medida: 
+        datos = medida.split(",")
+        if datos[3] == "08": # Entonces es NO2
+            lecturas = datos[9:]
+            for index, val in enumerate(lecturas):
+                if index % 2 == 0 and float(val) > 0:
+                    esta = estaciones_dict[str(int(datos[2]))]
+                    hora = "{0:02d}:00:00".format(int(index/2))
+                    datos_no2.append( [esta['nombre'],esta['long'],
+                      esta['lat'],hora,float(val)])
+	  </code></pre>
 
+	  <aside class='notes'>Para ello hay que leerse la explicación
+      que dice cómo está organizado todo. En una fila están las
+      mediciones de un sensor durante todo el día. El código está en
+      el tercer apartado detrás de la coma. Aparte, hemos tenido que
+      usar el programa anterior para convertir los códigos en
+      coordenadas decimales y nombres de estaciones... Finalmente, con
+      esto convertimos algo espantoso en algo que podemos representar
+	    fácilmente, e incluso animar.</aside>
+	</section>
+
+	<section><a href='visualizar.html'>Visualizando</a></section>
+	
+	
       </div>
     </div>
     
