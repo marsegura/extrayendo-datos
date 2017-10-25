@@ -55,6 +55,24 @@
 	  <h2>Sobre el proyecto de datos que se ha elegido, extraer relaciones entre columnas o calcular acumulados por categoría.</h2>
 	</section>
 
+	<section><h1>Cuando los datos no están exactamente como los necesitas</h1>
+
+	  <img src='img/coordenadas.png' alt='Excel con coordenadas'>
+	</section>
+
+	<section><h1>Conversión a <a href='https://github.com/JJ/extrayendo-datos/blob/master/scripts/estaciones-a-utm.py'>UTM</a> de decimal</h1>
+	  <pre><code>def decimal( cifras ):
+    if ( len(cifras) < 4 ):
+        cifras.append( 0 )
+        return float(cifras[0])
+	    +float(cifras[1])/60
+	    +float("{cifras[2]}.{cifras[3]}".format(**locals()))/3600
+	</code></pre>
+	</section>
+
+	<section data-background='img/estaciones.png' alt='resultado en Fusion tables'>
+	</section>
+	
 	<section><h1>Texto: siempre hay que procesarlo</h1>
 	  
 	  <h2 class='fragment'>Columnas fijas</h2>
