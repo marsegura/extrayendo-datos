@@ -192,7 +192,22 @@ aparcamientos_diccionario = list(parkingreader)</code></pre>
 >>> datos
 {'distritos': [{'DP': 18071, 'partido': 'PU', 'votos': 3015}, {'DP': 33071, 'partido'
 : 'UUU', 'votos': 777}], 'todos': {'votos': 33333}}
-	</code></pre></section>
+</code></pre>
+
+<aside class='notes'>JSON es el formaot universal de almacenamiento de
+  información, porque permite estructurarla de forma arbitraria y dar
+  cualquier tipo de contenido, no necesariamente tabular. También
+  puede procesarse más fácilmente. Si vas a trabajar con un API (lo
+  que no nos va a dar tiempo a ver), lo más probable es que use este
+  formato; también muchos portales de datos abiertos lo usan e incluso
+  algunos "leaks" como el de Ashley-Madison. Y sea
+  como sea, también es un formato muy práctico para almacenar la
+  información de forma que sea fácil trabajar con ella más
+  adelante. Por contra, es poco "visible" (aunque no es imposible) y
+  "editable" (pero tampoco lo es). Se puede convertir fácilmente desde
+  cualquier otro formatl.</aside>
+
+	</section>
 
 	<section><h1>De Python a JSON</h1>
 <pre><code>>>> import json
